@@ -1,1 +1,23 @@
-# Chromebook
+# Setup
+
+1. Clone the repo:
+   git clone https://github.com/NeyzoxWw/Chromebook && cd Emudhroll
+2. Install requirements:
+   pip install -r requirements.txt
+3. Run the proxy:
+   python main.py
+
+The proxy listens on port 8080.
+
+## Chromebook setup (normal unenroll) — works on version 152 and below (if it doesn't work on 152, try a lower version like 151.0.7922.221)
+
+1. Powerwash the Chromebook.
+2. On the Welcome OOBE screen, connect to Wi-Fi from the bottom right quick settings tray and open its proxy settings from there as well. (it is necessary to do it on the welcome as revocation will occur otherwise if not done fast enough)
+3. Set to Manual proxy configuration.
+4. Enable Use the same proxy for all protocols.
+5. Enter your computer's IP and port 8080.
+6. Continue through OOBE and it should unenrolol
+7. **Note:** If you see a "can't reach Google" error and the Chromebook is on version 152 or below, powerwash and try again (this indicates revocation occurred and the client no longer trusts the eMudhra cert). Another edge case is the Chromebook not actually connecting to the proxy due to firewall issues on the host (indicative of no requests being logged in verbose mode), powerwashing will not help in this case as the issue would need to be resolved on the host side. Also, You must powerwash again for every failed attempt as there is a 99% chance that you got revoked.
+
+## Permanent unenrollment
+is now patched :( and has been removed
